@@ -19,6 +19,8 @@ pipeline {
         
         sh 'composer --version'
         sh 'php --version'
+        sh 'composer install'
+        sh 'php artisan serve'
       }
     }
   }
