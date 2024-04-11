@@ -9,7 +9,11 @@ pipeline {
     }
     stage('Test') {
       steps {
-        agent { docker 'phpcomposer' }
+        agent { 
+          docker {
+            image 'phpcomposer'
+          }
+        }
         sh 'composer --version'
         sh 'php --version'
       }
