@@ -5,7 +5,7 @@ pipeline {
       agent any
       steps {
         
-        sh 'docker build -f Dockerfile -t phpcomposer .'
+        sh 'docker build -t phpcomposer .'
         sh 'docker images'
       }
     }
@@ -20,7 +20,9 @@ pipeline {
         sh 'composer --version'
         sh 'php --version'
         sh 'composer install'
-        sh 'php artisan key:generate '
+        sh 'cp .env.example .env'
+        sh 'php artisan key:generate'
+
       }
     }
   }
